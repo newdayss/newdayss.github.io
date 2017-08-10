@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>waimai</title>
+		<script src="js/viewport.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/swiper.min.css" />
+	</head>
+	<body>
+		<header>
+			<div class="cityBtn"><a href="city.html" style="color: #fff;" id="lo_search">广州</a></div>
+			<div class="search_header">
+				<a href="search.html">
+					<i class="icon-search"></i>
+					<span id="hash_value">请输入您的搜素内容</span>
+				</a>
+			</div>
+			<div class="location"></div>
+			<div class="setbtn"></div>
+		</header>
+		
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide">
+		        	<img src="img/banner/appbanner-2.jpg" />
+		        </div>
+		        <div class="swiper-slide">
+		        	<img src="img/banner/appbanner-1.jpg" />
+		        </div>
+		        <div class="swiper-slide">
+		        	<img src="img/banner/appbanner-3.jpg" />
+		        </div>
+		         <div class="swiper-slide">
+		        	<img src="img/banner/banner-s4.jpg" />
+		        </div>
+		         <div class="swiper-slide">
+		        	<img src="img/banner/banner-s5.jpg" />
+		        </div>
+		    </div>
+		    <!-- 分页器 -->
+		    <div class="swiper-pagination"></div>
+		    
+		    <!-- 导航按钮 -->
+		    <div class="swiper-button-prev"></div>
+		    <div class="swiper-button-next"></div>
+		    
+		    <!-- 滚动条 -->
+		    <div class="swiper-scrollbar"></div>
+		</div>
+		
+		<div class="liftBtn clearfix">
+			<div class="lift_listBtn clearfix">
+				<span class="show"></span>
+				<span></span>
+			</div>
+			<div class="lift_ul_con clearfix">
+				<ul class="liftbox clearfix">
+				<li class="liftbox_li">
+					<a href="my_collection.html">
+						<img src="img/a1.png" />
+						<p>团购</p>
+					</a>
+				</li>
+				<li class="liftbox_li">
+					<a href="near_place.html">
+						<img src="img/a2.png" />
+						<p>外卖</p>
+					</a>
+				</li>
+				<li class="liftbox_li">
+					<a href="rush.html">
+						<img src="img/a3.png" />
+						<p>限时抢购</p>
+					</a>
+				</li>
+				<li class="liftbox_li">
+					<a href="entertainment.html">
+						<img src="img/a5.png" />
+						<p>娱乐</p>
+					</a>
+				</li>
+				<li class="liftbox_li">
+					<a href="hotal.html">
+						<img src="img/a6.png" />
+						<p>酒店</p>
+					</a>
+				</li>
+				<li class="liftbox_li">
+					<a href="javascript:void(0);">
+						<img src="img/a7.png" />
+						<p>旅游</p>
+					</a>
+				</li>
+				<li class="liftbox_li">
+					<a href="ticket.html">
+						<img src="img/a8.png" />
+						<p>票务</p>
+					</a>
+				</li>
+				<li class="liftbox_li">
+					<a href="javascript:void(0);">
+						<img src="img/b1.png" />
+						<p>生活服务</p>
+					</a>
+				</li>
+			</ul>
+			<ul class="liftbox clearfix">
+				<li class="liftbox_li">
+					<a href="javascript:void(0);">
+						<img src="img/b2.png" />
+						<p>百货商城</p>
+					</a>
+				</li>
+				<li class="liftbox_li">
+					<a href="javascript:void(0);">
+						<img src="img/b3.png" />
+						<p>积分商城</p>
+					</a>
+				</li>
+				<li class="liftbox_li">
+					<a href="javascript:void(0);">
+						<img src="img/b4.png" />
+						<p>农家乐</p>
+					</a>
+				</li>
+				<li class="liftbox_li">
+					<a href="javascript:void(0);">
+						<img src="img/b5.png" />
+						<p>租车</p>
+					</a>
+				</li>
+				<li class="liftbox_li">
+					<a href="javascript:void(0);">
+						<img src="img/b6.png" />
+						<p>二手房</p>
+					</a>
+				</li>
+				<li class="liftbox_li">
+					<a href="javascript:void(0);">
+						<img src="img/b8.png" />
+						<p>分类信息</p>
+					</a>
+				</li>
+			</ul>
+			
+			</div>
+		</div>
+		
+		<div class="timer_over">
+			<span>限时抢购</span>
+			<div class="clock_timeover">
+				距离结束
+			<span class="clock">
+				<span>00</span>天
+				<span>00</span>时
+				<span>00</span>分
+				<span>00</span>秒
+			</span>
+			</div>
+		</div>
+		<div class="hot_foods">
+			<div class="hot_foods_box">
+				<ul class="hot_foods_boxmove">
+					<li><a href="detail.html">
+						<img src="img/images/qianggou/a1.jpg" alt="img" />
+						<p class="hot_foods_name">咸蛋瘦肉粥</p>
+						<p class="hot_foods_price">
+							&yen;14.4
+							<small>
+								<del>20.5</del>
+							</small>
+						</p>
+					</a></li>
+					<li><a href="detail.html">
+						<img src="img/images/qianggou/a2.jpg" alt="img" />
+						<p class="hot_foods_name">板栗烧鸭饭</p>
+						<p class="hot_foods_price">
+							&yen;10.8
+							<small>
+								<del>22.5</del>
+							</small>
+						</p>
+					</a></li>
+					<li><a href="detail.html">
+						<img src="img/images/qianggou/a3.jpg" alt="img" />
+						<p class="hot_foods_name">特色榴莲粥</p>
+						<p class="hot_foods_price">
+							&yen;16.9
+							<small>
+								<del>39.9</del>
+							</small>
+						</p>
+					</a></li>
+					<li><a href="detail.html">
+						<img src="img/images/qianggou/a4.jpg" alt="img" />
+						<p class="hot_foods_name">农家小炒</p>
+						<p class="hot_foods_price">
+							&yen;10.0
+							<small>
+								<del>20.5</del>
+							</small>
+						</p>
+					</a></li>
+					<li><a href="detail.html">
+						<img src="img/images/qianggou/a5.jpg" alt="img" />
+						<p class="hot_foods_name">麻婆豆腐</p>
+						<p class="hot_foods_price">
+							&yen;15.5
+							<small>
+								<del>24.5</del>
+							</small>
+						</p>
+					</a></li>
+					<li><a href="detail.html">
+						<img src="img/images/qianggou/a1.jpg" alt="img" />
+						<p class="hot_foods_name">咸蛋瘦肉粥</p>
+						<p class="hot_foods_price">
+							&yen;14.4
+							<small>
+								<del>22.5</del>
+							</small>
+						</p>
+					</a></li>
+					<li><a href="detail.html">
+						<img src="img/images/qianggou/a2.jpg" alt="img" />
+						<p class="hot_foods_name">板栗烧鸭饭</p>
+						<p class="hot_foods_price">
+							&yen;16.8
+							<small>
+								<del>29.9</del>
+							</small>
+						</p>
+					</a></li>
+					<li><a href="detail.html">
+						<img src="img/images/qianggou/a3.jpg" alt="img" />
+						<p class="hot_foods_name">特色榴莲粥</p>
+						<p class="hot_foods_price">
+							&yen;14
+							<small>
+								<del>25.5</del>
+							</small>
+						</p>
+					</a></li>
+					<li><a href="detail.html">
+						<img src="img/images/qianggou/a4.jpg" alt="img" />
+						<p class="hot_foods_name">农家小炒</p>
+						<p class="hot_foods_price">
+							&yen;10.0
+							<small>
+								<del>26.5</del>
+							</small>
+						</p>
+					</a></li>
+					<li><a href="detail.html">
+						<img src="img/images/qianggou/a5.jpg" alt="img" />
+						<p class="hot_foods_name">麻婆豆腐</p>
+						<p class="hot_foods_price">
+							&yen;12.6
+							<small>
+								<del>23.7</del>
+							</small>
+						</p>
+					</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="timer_over">
+			<span>热门商家</span>
+			<a href="javascript:void(0);" class="more">
+				更多&gt;&gt;
+			</a>
+		</div>
+		
+		<div class="hot_stores">
+			<div class="hot_stores_box">
+				<div class="hot_stores_boxmove_ul">
+					<ul class="hot_stores_boxmove clearfix">
+						<li><a href="detail.html">
+							<img src="img/images/shangjia/b1.jpg" />
+							<p class="stores_name">外卖商家首页</p>
+							<p class="store_info clearfix">
+								<span class="store_info_num1">22人关注</span>
+								<span class="store_info_num2">已售1468</span>
+							</p>
+						</a></li>
+						<li><a href="detail.html">
+							<img src="img/images/shangjia/b2.jpg" />
+							<p class="stores_name">团购商家首页</p>
+							<p class="store_info clearfix">
+								<span class="store_info_num1">75人关注</span>
+								<span class="store_info_num2">已售598</span>
+							</p>
+						</a></li>
+						<li><a href="detail.html">
+							<img src="img/images/shangjia/b3.jpg" />
+							<p class="stores_name">菲诗小铺</p>
+							<p class="store_info clearfix">
+								<span class="store_info_num1">24人关注</span>
+								<span class="store_info_num2">已售1268</span>
+							</p>
+						</a></li>
+						<li><a href="detail.html">
+							<img src="img/images/shangjia/b4.jpg" />
+							<p class="stores_name">食品大全</p>
+							<p class="store_info clearfix">
+								<span class="store_info_num1">66人关注</span>
+								<span class="store_info_num2">已售8258</span>
+							</p>
+						</a></li>
+						<li><a href="detail.html">
+							<img src="img/images/shangjia/b5.jpg" />
+							<p class="stores_name">超值快送</p>
+							<p class="store_info clearfix">
+								<span class="store_info_num1">32人关注</span>
+								<span class="store_info_num2">已售168</span>
+							</p>
+						</a></li>
+						<li><a href="detail.html">
+							<img src="img/images/shangjia/b1.jpg" />
+							<p class="stores_name">外卖商家首页</p>
+							<p class="store_info clearfix">
+								<span class="store_info_num1">22人关注</span>
+								<span class="store_info_num2">已售1468</span>
+							</p>
+						</a></li>
+						<li><a href="detail.html">
+							<img src="img/images/shangjia/b2.jpg" />
+							<p class="stores_name">团购商家首页</p>
+							<p class="store_info clearfix">
+								<span class="store_info_num1">75人关注</span>
+								<span class="store_info_num2">已售598</span>
+							</p>
+						</a></li>
+						<li><a href="detail.html">
+							<img src="img/images/shangjia/b3.jpg" />
+							<p class="stores_name">菲诗小铺</p>
+							<p class="store_info clearfix">
+								<span class="store_info_num1">24人关注</span>
+								<span class="store_info_num2">已售1268</span>
+							</p>
+						</a></li>
+						<li><a href="detail.html">
+							<img src="img/images/shangjia/b4.jpg" />
+							<p class="stores_name">食品大全</p>
+							<p class="store_info clearfix">
+								<span class="store_info_num1">66人关注</span>
+								<span class="store_info_num2">已售8258</span>
+							</p>
+						</a></li>
+						<li><a href="detail.html">
+							<img src="img/images/shangjia/b5.jpg" />
+							<p class="stores_name">超值快送</p>
+							<p class="store_info clearfix">
+								<span class="store_info_num1">32人关注</span>
+								<span class="store_info_num2">已售168</span>
+							</p>
+						</a></li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="adbanner">
+			<ul class="adbanner_ul">
+				<div class="lift_listBtn clearfix">
+					<span class="show"></span>
+					<span></span>
+				</div>
+				<li class="showop">
+					<a href="javascript:void(0);">
+						<img src="img/banner/app-banner-s1.jpg" />
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0);">
+						<img src="img/banner/app-banner-s2.jpg" />
+					</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="timer_over">
+			<span>热门水果推荐</span>
+			<a href="javascript:void(0);" class="more">
+				更多&gt;&gt;
+			</a>
+		</div>
+		<div class="last_list">
+			<ul class="last_list_ul clearfix">
+				<li>
+					<a href="detail.html">
+						<img src="img/images/c5.jpg" />
+						<div class="last_list_infomation">
+							<p>苹果特价优惠</p>
+							<div class="last_list_activity clearfix">
+								<span class="ac_price">&yen25</span>
+								<span class="ac_hd">[优惠活动]</span>
+								<p class="ac_p">已售86</p>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="detail.html">
+						<img src="img/images/c2.jpg" />
+						<div class="last_list_infomation">
+							<p>哈密瓜特价优惠</p>
+							<div class="last_list_activity clearfix">
+								<span class="ac_price">&yen22</span>
+								<span class="ac_hd">[优惠活动]</span>
+								<p class="ac_p">已售556</p>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="detail.html">
+						<img src="img/images/c1.jpg" />
+						<div class="last_list_infomation">
+							<p>红橙特价优惠</p>
+							<div class="last_list_activity clearfix">
+								<span class="ac_price">&yen26</span>
+								<span class="ac_hd">[优惠活动]</span>
+								<p class="ac_p">已售152</p>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="detail.html">
+						<img src="img/images/c3.jpg" />
+						<div class="last_list_infomation">
+							<p>凤梨特价优惠</p>
+							<div class="last_list_activity clearfix">
+								<span class="ac_price">&yen13</span>
+								<span class="ac_hd">[优惠活动]</span>
+								<p class="ac_p">已售232</p>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="detail.html">
+						<img src="img/images/c6.jpg" />
+						<div class="last_list_infomation">
+							<p>甜橙特价优惠</p>
+							<div class="last_list_activity clearfix">
+								<span class="ac_price">&yen12</span>
+								<span class="ac_hd">[优惠活动]</span>
+								<p class="ac_p">已售486</p>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="detail.html">
+						<img src="img/images/c7.jpg" />
+						<div class="last_list_infomation">
+							<p>火龙果特价优惠</p>
+							<div class="last_list_activity clearfix">
+								<span class="ac_price">&yen18</span>
+								<span class="ac_hd">[优惠活动]</span>
+								<p class="ac_p">已售214</p>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="detail.html">
+						<img src="img/images/c8.jpg" />
+						<div class="last_list_infomation">
+							<p>鲜枣特价优惠</p>
+							<div class="last_list_activity clearfix">
+								<span class="ac_price">&yen20</span>
+								<span class="ac_hd">[优惠活动]</span>
+								<p class="ac_p">已售84</p>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="detail.html">
+						<img src="img/images/c9.jpg" />
+						<div class="last_list_infomation">
+							<p>山药特价优惠</p>
+							<div class="last_list_activity clearfix">
+								<span class="ac_price">&yen11</span>
+								<span class="ac_hd">[优惠活动]</span>
+								<p class="ac_p">已售32</p>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="detail.html">
+						<img src="img/images/d5.jpg" />
+						<div class="last_list_infomation">
+							<p>番茄面包优惠</p>
+							<div class="last_list_activity clearfix">
+								<span class="ac_price">&yen8</span>
+								<span class="ac_hd">[优惠活动]</span>
+								<p class="ac_p">已售231</p>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="detail.html">
+						<img src="img/images/d2.jpg" />
+						<div class="last_list_infomation">
+							<p>水果寿司特价优惠</p>
+							<div class="last_list_activity clearfix">
+								<span class="ac_price">&yen8</span>
+								<span class="ac_hd">[优惠活动]</span>
+								<p class="ac_p">已售146</p>
+							</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		
+		<footer>
+			<div>
+				<a href="javascript:void(0);">
+					<div class="icon ic_1 on"></div>
+					<p>首页</p>
+				</a>
+			</div>
+			<div>
+				<a href="near_place.html">
+					<div class="icon ic_2"></div>
+					<p>附近</p>
+				</a>
+			</div>
+			<div>
+				<a href="rush.html">
+					<div class="icon ic_3"></div>
+					<p>抢购</p>
+				</a>
+			</div>
+			<div>
+				<a href="my_collection.html">
+					<div class="icon ic_4"></div>
+					<p>关注</p>
+				</a>
+			</div>
+			<div>
+				<a href="my_center.html">
+					<div class="icon ic_5"></div>
+					<p>我的</p>
+				</a>
+			</div>
+		</footer>
+		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/todetailimg.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
