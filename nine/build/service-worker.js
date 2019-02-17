@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "https://newdayss.github.io/eight/build/precache-manifest.5bbfadebfbf10a8ff4621725fd5ca1ab.js"
+  "https://newdayss.github.io/nine/build/precache-manifest.8d43c720f4bfea3b7269357e7629d105.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("https://newdayss.github.io/eight/build/index.html", {
+workbox.routing.registerNavigationRoute("https://newdayss.github.io/nine/build/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
