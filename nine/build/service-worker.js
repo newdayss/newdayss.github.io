@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "https://newdayss.github.io/nine/build/precache-manifest.8d43c720f4bfea3b7269357e7629d105.js"
+  "https://newdayss.github.io/nine/build/precache-manifest.709512c037d60eb73965470facd27683.js"
 );
 
 workbox.clientsClaim();
