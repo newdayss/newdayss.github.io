@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>五子棋</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		canvas {
+			display: block;
+			margin: 50px auto;
+			box-shadow: -2px -2px 2px #efefef, 5px 5px 5px #b9b9b9;
+		}
+	</style>
+</head>
+
+<body>
+	<canvas id="chess" width="450" height="450"></canvas>
+	<script>
+		var wins = [];
+		var myWin = [];
+		var computerWin = [];
+		var count = 0;
+		var over = false;
+
+
+		for (var i = 0; i < 15; i++) {
+			wins[i] = [];
+			for (var j = 0; j < 15; j++) {
+				wins[i][j] = [];
+			}
+		}
+
+		for (var i = 0; i < 15; i++) {
+			for (var j = 0; j < 11; j++) {
+				for (var k = 0; k < 5; k++) {
+					wins[i][j + k][count] = true;
+				}
+				count++;
+			}
+		}
+
+
+
+		for (var i = 0; i < 15; i++) {
+			for (var j = 0; j < 11; j++) {
+				for (var k = 0; k < 5; k++) {
+					wins[j + k][i][count] = true;
+				}
+				count++;
+			}
+		}
+
+		for (var i = 0; i < 11; i++) {
+			for (var j = 0; j < 11; j++) {
+				for (var k = 0; k < 5; k++) {
+					wins[i + k][j + k][count] = true;
+				}
+				count++;
+			}
+		}
+
+		for (var i = 0; i < 11; i++) {
+			for (var j = 14; j > 3; j--) {
+				for (var k = 0; k < 5; k++) {
+					wins[i + k][j - k][count] = true;
+				}
+				count++;
+			}
+		}
+
+		for (var i = 0; i < count; i++) {
+			myWin[i] = 0;
+			computerWin[i] = 0;
+		}
+
+		var chessBoard = [];
+		for (var i = 0; i < 15; i++) {
+			chessBoard[i] = [];
+			for (var j = 0; j < 15; j++) {
+				chessBoard[i][j] = 0;
+			}
+		}
+
+
+		var chess = document.getElementById("chess");
+		var context = chess.getContext('2d');
+		var me = true;
+
+		context.strokeStyle = '#bfbfbf';
+		var logo = new Image();
+		logo.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAABpCAMAAADvN+hZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA61pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wUmlnaHRzPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvcmlnaHRzLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcFJpZ2h0czpNYXJrZWQ9IkZhbHNlIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InV1aWQ6RDkzMUY0MkU2QUQ2RTAxMUJGN0VFODM3QzkxQTAwMjYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QjMyNzQxMjUwQjY4MTFFMUE3MTRFMjMzNkU0QTAyNjkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QjMyNzQxMjQwQjY4MTFFMUE3MTRFMjMzNkU0QTAyNjkiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjM2RjEyMjQ0RDBCRTExMTgwOUZGQzkzOTY1MEU5MDIiIHN0UmVmOmRvY3VtZW50SUQ9InV1aWQ6RDkzMUY0MkU2QUQ2RTAxMUJGN0VFODM3QzkxQTAwMjYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4AuBwZAAAAM1BMVEX////w8PDt7e339/fx8fHu7u7r6+vy8vLv7+/z8/P09PTo6Ojs7Ozq6ur19fXp6en29vaqsewRAAAATklEQVR42szIwRWAIAxEQRRRUBT6r9YCPse8TeY46aHkdYPC30tud5LkOrndTuZXSHKVJLeR+R0kuYsk10hyN0nuo1A3KfxlMr+FX4ABAJYIR8bOQUT8AAAAAElFTkSuQmCC';
+
+		logo.onload = function () {
+			context.drawImage(logo, 0, 0, 450, 450);
+			drawimage();
+
+		}
+
+		function drawimage() {
+			for (var i = 0; i < 15; i++) {
+				context.moveTo(15 + 30 * i, 15);
+				context.lineTo(15 + 30 * i, 435);
+				context.stroke();
+
+				context.moveTo(15, 15 + 30 * i);
+				context.lineTo(435, 15 + 30 * i);
+				context.stroke();
+			}
+
+		}
+
+		function drawyuan(i, j, me) {
+			context.beginPath();
+			context.arc(15 + 30 * i, 15 + 30 * j, 13, 0, 2 * Math.PI);
+			context.closePath();
+			var gradient = context.createRadialGradient(17 + 30 * i, 13 + 30 * j, 13, 17 + 30 * i, 13 + 30 * j, 0);
+			if (me) {
+				gradient.addColorStop('0', '#0a0a0a');
+				gradient.addColorStop('1', '#636766');
+			} else {
+				gradient.addColorStop('0', '#d1d1d1');
+				gradient.addColorStop('1', '#f9f9f9');
+			}
+			context.fillStyle = gradient;
+			context.fill();
+		}
+
+		chess.onclick = function (e) {
+			if (over) {
+				return;
+			}
+			if (!me) {
+				return;
+			}
+			var pagex = e.offsetX;
+			var pagey = e.offsetY;
+
+			var i = Math.floor(pagex / 30);
+			var j = Math.floor(pagey / 30);
+			if (chessBoard[i][j] == 0) {
+				drawyuan(i, j, me);
+				//		if(me){
+				chessBoard[i][j] = 1;
+				//		}else{
+				//			chessBoard[i][j]=2;
+				//			
+				//		}  
+
+				for (var k = 0; k < count; k++) {
+					if (wins[i][j][k]) {
+						myWin[k]++;
+						computerWin[k] = 6;
+						if (myWin[k] == 5) {
+							alert("你赢了");
+							over = true;
+						}
+					}
+				}
+
+				if (!over) {
+					computerAI();
+					me = !me;
+				}
+			}
+
+		}
+
+
+		var computerAI = function () {
+			var myScore = [];
+			var max = 0;
+			var u = 0;
+			var v = 0;
+			var computerScore = [];
+			for (var i = 0; i < 15; i++) {
+				myScore[i] = [];
+				computerScore[i] = [];
+				for (j = 0; j < 15; j++) {
+					myScore[i][j] = 0;
+					computerScore[i][j] = 0;
+				}
+			}
+
+			for (var i = 0; i < 15; i++) {
+				for (var j = 0; j < 15; j++) {
+					if (chessBoard[i][j] == 0) {
+						for (var k = 0; k < count; k++) {
+							if (wins[i][j][k]) {
+								if (myWin[k] == 1) {
+									myScore[i][j] += 200;
+								} else if (myWin[k] == 2) {
+									myScore[i][j] += 400;
+								} else if (myWin[k] == 3) {
+									myScore[i][j] += 2000;
+								} else if (myWin[k] == 4) {
+									myScore[i][j] += 10000;
+								}
+
+								if (computerWin[k] == 1) {
+									computerScore[i][j] += 220;
+								} else if (computerWin[k] == 2) {
+									computerScore[i][j] += 420;
+								} else if (computerWin[k] == 3) {
+									computerScore[i][j] += 2200;
+								} else if (computerWin[k] == 4) {
+									computerScore[i][j] += 20000;
+								}
+							}
+
+						}
+						if (myScore[i][j] > max) {
+							max = myScore[i][j];
+							u = i;
+							v = j;
+						} else if (myScore[i][j] == max) {
+							if (computerScore[i][j] > computerScore[u][v]) {
+								u = i;
+								v = j;
+							}
+
+						}
+
+
+						if (computerScore[i][j] > max) {
+							max = computerScore[i][j];
+							u = i;
+							v = j;
+						} else if (computerScore[i][j] == max) {
+							if (myScore[i][j] > myScore[u][v]) {
+								u = i;
+								v = j;
+							}
+
+						}
+					}
+
+				}
+			}
+			drawyuan(u, v, false);
+			chessBoard[u][v] = 2;
+			for (var k = 0; k < count; k++) {
+				if (wins[u][v][k]) {
+					computerWin[k]++;
+					myWin[k] = 6;
+					if (computerWin[k] == 5) {
+						alert("计算机赢了哦");
+						over = true;
+					}
+				}
+			}
+
+			if (!over) {
+				me = !me;
+			}
+			console.log(computerScore[u][v]);
+		}
+
+	</script>
+</body>
+
+</html>

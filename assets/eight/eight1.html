@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+	            width: 400px;
+	            height: 400px;
+	            -webkit-perspective: 1000px;
+	            margin:100px auto;
+	        }
+			.content{
+	            width: 100%;
+	            height: 100%;
+	            -webkit-transform-style: preserve-3d;
+	            -webkit-transform: translate3d(0,0,-200px) rotateY(30deg) rotateX(30deg);
+	            transition: all 1s;
+          	  -webkit-animation:go 5s infinite linear;
+	            
+	        }
+	        .roll{
+	            width: 100%;
+	            height: 100%;
+	            position: absolute;
+	            border:1px solid;
+	            overflow: hidden;
+	            z-index: 10;
+	            font-size: 80px;
+	     		text-align: center;
+	     		line-height: 400px;
+      	     	opacity: 0.5;
+	        }
+	        .roll img{
+	            width: 100%;
+	            height: 100%;
+	        }
+	        .roll-left{
+	        	background: lightsalmon;
+	            -webkit-transform: translate3d(0px , 0 , -200px) rotateY(0deg) rotateX(180deg);
+	        }
+	        .roll-right{
+	        	background: lightgreen;
+	            -webkit-transform: translate3d(0px , 0px ,200px) rotateY(0deg);
+	        }
+	        .roll-bottom{
+	        	background: lightseagreen;
+	           
+	            -webkit-transform: translate3d(0px , 200px , 0px) rotateX(-90deg);
+	        }
+	        .roll-top{
+	           background: lightslategrey;
+	            -webkit-transform: translate3d(0px , -200px , 0px) rotateX(90deg);
+	        }
+	        .roll-out{
+	        	background: lightpink;
+	            -webkit-transform: translate3d(200px , 0 , 0px) rotateY(90deg);
+	        }
+	        .roll-in{
+	        	background: lawngreen;
+	            -webkit-transform: translate3d(-200px , 0 , 0px) rotateY(-90deg);
+	        }
+	        
+	       @-webkit-keyframes go{
+         	0%{
+                -webkit-transform: translate3d(0,0,-200px) rotateY(30deg) rotateX(30deg);
+            }
+          
+            100%{
+                -webkit-transform: translate3d(0,0,-200px) rotateY(360deg) rotateX(360deg);
+            }
+        }
+		</style>
+	</head>
+	<body>
+	<div class="box">
+        <div class="content">
+            <div class="roll roll-left"></div>
+            <div class="roll roll-right"></div>
+            <div class="roll roll-bottom"></div>
+            <div class="roll roll-top"></div>
+            <div class="roll roll-out"></div>
+            <div class="roll roll-in"></div>
+        </div>
+    </div>
+    <!--<button>上一页</button>
+    <button>下一页</button>
+    <button>左一页</button>
+    <button>右一页</button>-->
+	</body>
+</html>
+<!--<script type="text/javascript">
+	var btn = document.getElementsByTagName('button');
+	var con = document.getElementsByClassName('content')[0];
+	var de = 0;
+	var xe = 0;
+	var act = true;
+	btn[1].onclick = function() {
+		if(act){
+			act = false
+			de-=90;           
+			con.style.transform = 'translate3d(0,0,-200px) rotateX('+de+'deg)';
+			setTimeout(function(){
+				act = true;
+			},1000)
+		}
+	}
+	btn[0].onclick = function() {
+		if(act){
+			act = false
+			de+=90;           
+			con.style.transform = 'translate3d(0,0,-200px) rotateX('+de+'deg)';
+			setTimeout(function(){
+				act = true;
+			},1000)
+		}
+	}
+	btn[2].onclick = function() {
+		if(act){
+			act = false
+			xe-=90;           
+			con.style.transform = 'translate3d(0,0,-200px) rotateY('+xe+'deg)';
+			setTimeout(function(){
+				act = true;
+			},1000)
+		}
+	}
+	btn[3].onclick = function() {
+		if(act){
+			act = false
+			xe+=90;           
+			con.style.transform = 'translate3d(0,0,-200px) rotateY('+xe+'deg)';
+			setTimeout(function(){
+				act = true;
+			},1000)
+		}
+	}
+</script>-->
